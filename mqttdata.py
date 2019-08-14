@@ -28,6 +28,10 @@ def cellular_message(msg_topic):
 def on_message(mosq, obj, msg):
     payload=str(msg.payload)
 
+    #Send message
+    if(int(payload[2:(len(payload)-1)]))>80:
+        cellular_message(msg.topic)
+        
     #dustbin1 data posting
     if msg.topic=="container1DataGreen":
         fp=open("C:\Apache24\htdocs\Data\Dustbin_1_Green","w")
