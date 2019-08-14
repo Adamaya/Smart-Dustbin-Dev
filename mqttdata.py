@@ -98,12 +98,24 @@ if __name__ == '__main__':
     client.on_message = on_message
     client.on_publish = on_publish
     
-    client.username_pw_set(data["user"], data["pw"])
-    #client.tls_set('root.ca', certfile='c1.crt', keyfile='c1.key')
+    client.username_pw_set(data["user1"], data["pw"])
+    client.username_pw_set(data["user2"], data["pw"])
+    client.username_pw_set(data["user3"], data["pw"])
+    client.username_pw_set(data["user4"], data["pw"])
+    client.username_pw_set(data["user5"], data["pw"])
+    
     client.connect(data["ip"], data["port"], 60)
 
     client.subscribe("container1DataGreen", 0)
     client.subscribe("container1DataBlue", 0)
+    client.subscribe("container2DataGreen", 0)
+    client.subscribe("container2DataBlue", 0)
+    client.subscribe("container3DataGreen", 0)
+    client.subscribe("container3DataBlue", 0)
+    client.subscribe("container4DataGreen", 0)
+    client.subscribe("container4DataBlue", 0)
+    client.subscribe("container5DataGreen", 0)
+    client.subscribe("container5DataBlue", 0)
     
     #client.publish('reverse', 'ack', 0)
     
