@@ -34,52 +34,52 @@ def on_message(mosq, obj, msg):
         
     #dustbin1 data posting
     if msg.topic=="container1DataGreen":
-        fp=open("C:\Apache24\htdocs\Data\Dustbin_1_Green","w")
-        print(msg.topic+payload[2:(len(payload)-1)],file=fp)
+        fp=open("C:\Apache24\htdocs\Data\Dustbin_1_Green.json","w")
+        print(payload[2:(len(payload)-1)],file=fp)
         fp.close()
     if msg.topic=="container1DataBlue":
-        fp=open("C:\Apache24\htdocs\Data\Dustbin_1_Blue","w")
-        print(msg.topic+payload[2:(len(payload)-1)],file=fp)
+        fp=open("C:\Apache24\htdocs\Data\Dustbin_1_Blue.json","w")
+        print(payload[2:(len(payload)-1)],file=fp)
         fp.close()
 
     # dustbin2 data posting
     if msg.topic=="container2DataGreen":
-        fp=open("C:\Apache24\htdocs\Data\Dustbin_2_Green","w")
-        print(msg.topic+payload[2:(len(payload)-1)],file=fp)
+        fp=open("C:\Apache24\htdocs\Data\Dustbin_2_Green.json","w")
+        print(payload[2:(len(payload)-1)],file=fp)
         fp.close()
     if msg.topic=="container2DataBlue":
-        fp=open("C:\Apache24\htdocs\Data\Dustbin_2_Blue","w")
-        print(msg.topic+payload[2:(len(payload)-1)],file=fp)
+        fp=open("C:\Apache24\htdocs\Data\Dustbin_2_Blue.json","w")
+        print(payload[2:(len(payload)-1)],file=fp)
         fp.close()
 
     # dustbin3 data posting
     if msg.topic=="container3DataGreen":
-        fp=open("C:\Apache24\htdocs\Data\Dustbin_3_Green","w")
-        print(msg.topic+payload[2:(len(payload)-1)],file=fp)
+        fp=open("C:\Apache24\htdocs\Data\Dustbin_3_Green.json","w")
+        print(payload[2:(len(payload)-1)],file=fp)
         fp.close()
     if msg.topic=="container3DataBlue":
-        fp=open("C:\Apache24\htdocs\Data\Dustbin_4_Blue","w")
-        print(msg.topic+payload[2:(len(payload)-1)],file=fp)
+        fp=open("C:\Apache24\htdocs\Data\Dustbin_4_Blue.json","w")
+        print(payload[2:(len(payload)-1)],file=fp)
         fp.close()
 
     # dustbin4 data posting
     if msg.topic == "container4DataGreen":
-        fp = open("C:\Apache24\htdocs\Data\Dustbin_4_Green", "w")
-        print(msg.topic + payload[2:(len(payload) - 1)], file=fp)
+        fp = open("C:\Apache24\htdocs\Data\Dustbin_4_Green.json", "w")
+        print(payload[2:(len(payload) - 1)], file=fp)
         fp.close()
     if msg.topic=="container4DataBlue":
-        fp=open("C:\Apache24\htdocs\Data\Dustbin_4_Blue","w")
-        print(msg.topic+payload[2:(len(payload)-1)],file=fp)
+        fp=open("C:\Apache24\htdocs\Data\Dustbin_4_Blue.json","w")
+        print(payload[2:(len(payload) -1 )], file=fp)
         fp.close()
 
     # dustbin5 data posting
     if msg.topic == "container5DataGreen":
-        fp = open("C:\Apache24\htdocs\Data\Dustbin_5_Green", "w")
-        print(msg.topic + payload[2:(len(payload) - 1)], file=fp)
+        fp = open("C:\Apache24\htdocs\Data\Dustbin_5_Green.json", "w")
+        print(payload[2:(len(payload) - 1)], file=fp)
         fp.close()
     if msg.topic=="container5DataBlue":
-        fp=open("C:\Apache24\htdocs\Data\Dustbin_5_Blue","w")
-        print(msg.topic+payload[2:(len(payload)-1)],file=fp)
+        fp=open("C:\Apache24\htdocs\Data\Dustbin_5_Blue.json","w")
+        print(payload[2:(len(payload)-1)],file=fp)
         fp.close()
     mosq.publish('pong', 'ack1', 0)
    
