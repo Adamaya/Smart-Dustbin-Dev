@@ -1,2 +1,2 @@
 def data():
-    return {"ip":"192.168.137.145","user1":"dustbin1","user2":"dustbin2","user3":"dustbin3","user4":"dustbin4","user5":"dustbin5","pw":"12345678","port":1883}
+    return {"ip":"Enter your server ip","user1":"username","user2":"username","user3":"username","user4":"username","user5":"username","pw":"password","port":1883}
