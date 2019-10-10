@@ -81,7 +81,7 @@ def on_message(mosq, obj, msg):
         print("85", file=fp)
     elif 4 < (int(payload[2:(len(payload) - 1)])) <= 8:
         print("90", file=fp)
-    elif 0 < (int(payload[2:(len(payload) - 1)])) <= 4:
+    elif 0 <= (int(payload[2:(len(payload) - 1)])) <= 4:
         print("100", file=fp)
     else:
         print("Invalid Value", file=fp)
