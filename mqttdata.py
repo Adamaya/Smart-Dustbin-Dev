@@ -7,18 +7,19 @@ import time, sys
 
 
 # TODO change the path
+# TODO change ultrasonic value according to dustbin height
 
 def cellular_message(msg_topic):
     if msg_topic == "container1DataGreen" or msg_topic == "container1DataBlue":
-        msg = "dustbin 1 is full"
+        message = "dustbin 1 is full"
     if msg_topic == "container2DataGreen" or msg_topic == "container2DataBlue":
-        msg = "dustbin 2 is full"
+        message = "dustbin 2 is full"
     if msg_topic == "container3DataGreen" or msg_topic == "container3DataBlue":
-        msg = "dustbin 3 is full"
+        message = "dustbin 3 is full"
     if msg_topic == "container4DataGreen" or msg_topic == "container4DataBlue":
-        msg = "dustbin 2 is full"
+        message = "dustbin 2 is full"
     if msg_topic == "container5DataGreen" or msg_topic == "container5DataBlue":
-        msg = "dustbin 5 is full"
+        message = "dustbin 5 is full"
 
     ser.write("AT+CMGF=1\r".encode())
     print("TEXT MODE ENABLED")
@@ -26,7 +27,7 @@ def cellular_message(msg_topic):
     ser.write('AT+CMGS="**********"\r'.encode())
 
     time.sleep(3)
-    ser.write((msg + chr(26)).encode())
+    ser.write((message + chr(26)).encode())
     time.sleep(3)
     print("message sent..")
 
@@ -81,6 +82,8 @@ def on_message(mosq, obj, msg):
             print("90", file=fp)
         elif 0 < (int(payload[2:(len(payload) - 1)])) <= 4:
             print("100", file=fp)
+        else:
+            print("Invalid Value", file=fp)
         fp.close()
     if msg.topic == "container1DataBlue":
         fp = open("C:\Apache24\htdocs\Data\Dustbin_1_Blue.json", "w")
