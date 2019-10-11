@@ -43,45 +43,45 @@ def on_message(mosq, obj, msg):
     # dustbin data posting
 
     fp = open("C:\Apache24\htdocs\Data\\" + dataFile[msg.topic], "w")
-    if 76 < (int(payload[2:(len(payload) - 1)])):
+    if 96 < (int(payload[2:(len(payload) - 1)])):
         print("0", file=fp)
-    elif 72 < (int(payload[2:(len(payload) - 1)])) <= 76:
+    elif 92 < (int(payload[2:(len(payload) - 1)])) <= 96:
         print("5", file=fp)
-    elif 68 < (int(payload[2:(len(payload) - 1)])) <= 72:
+    elif 88 < (int(payload[2:(len(payload) - 1)])) <= 92:
         print("10", file=fp)
-    elif 64 < (int(payload[2:(len(payload) - 1)])) <= 68:
+    elif 84 < (int(payload[2:(len(payload) - 1)])) <= 88:
         print("15", file=fp)
-    elif 60 < (int(payload[2:(len(payload) - 1)])) <= 64:
+    elif 80 < (int(payload[2:(len(payload) - 1)])) <= 84:
         print("20", file=fp)
-    elif 56 < (int(payload[2:(len(payload) - 1)])) <= 60:
+    elif 76 < (int(payload[2:(len(payload) - 1)])) <= 80:
         print("25", file=fp)
-    elif 52 < (int(payload[2:(len(payload) - 1)])) <= 56:
+    elif 72 < (int(payload[2:(len(payload) - 1)])) <= 76:
         print("30", file=fp)
-    elif 48 < (int(payload[2:(len(payload) - 1)])) <= 52:
+    elif 68 < (int(payload[2:(len(payload) - 1)])) <= 72:
         print("35", file=fp)
-    elif 44 < (int(payload[2:(len(payload) - 1)])) <= 48:
+    elif 64 < (int(payload[2:(len(payload) - 1)])) <= 68:
         print("40", file=fp)
-    elif 40 < (int(payload[2:(len(payload) - 1)])) <= 44:
+    elif 60 < (int(payload[2:(len(payload) - 1)])) <= 64:
         print("45", file=fp)
-    elif 36 < (int(payload[2:(len(payload) - 1)])) <= 40:
+    elif 56 < (int(payload[2:(len(payload) - 1)])) <= 60:
         print("50", file=fp)
-    elif 32 < (int(payload[2:(len(payload) - 1)])) <= 36:
+    elif 52 < (int(payload[2:(len(payload) - 1)])) <= 56:
         print("55", file=fp)
-    elif 28 < (int(payload[2:(len(payload) - 1)])) <= 32:
+    elif 48 < (int(payload[2:(len(payload) - 1)])) <= 52:
         print("60", file=fp)
-    elif 24 < (int(payload[2:(len(payload) - 1)])) <= 28:
+    elif 44 < (int(payload[2:(len(payload) - 1)])) <= 48:
         print("65", file=fp)
-    elif 20 < (int(payload[2:(len(payload) - 1)])) <= 24:
+    elif 40 < (int(payload[2:(len(payload) - 1)])) <= 44:
         print("70", file=fp)
-    elif 16 < (int(payload[2:(len(payload) - 1)])) <= 20:
+    elif 36 < (int(payload[2:(len(payload) - 1)])) <= 40:
         print("75", file=fp)
-    elif 12 < (int(payload[2:(len(payload) - 1)])) <= 16:
+    elif 32 < (int(payload[2:(len(payload) - 1)])) <= 36:
         print("80", file=fp)
-    elif 8 < (int(payload[2:(len(payload) - 1)])) <= 12:
+    elif 28 < (int(payload[2:(len(payload) - 1)])) <= 32:
         print("85", file=fp)
-    elif 4 < (int(payload[2:(len(payload) - 1)])) <= 8:
+    elif 24 < (int(payload[2:(len(payload) - 1)])) <= 28:
         print("90", file=fp)
-    elif 0 <= (int(payload[2:(len(payload) - 1)])) <= 4:
+    elif 20 <= (int(payload[2:(len(payload) - 1)])) <= 24:
         print("100", file=fp)
     else:
         print("Invalid Value", file=fp)
