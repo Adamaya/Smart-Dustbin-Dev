@@ -20,7 +20,7 @@ def cellular_message(msg_topic):
     ser.write("AT+CMGF=1\r".encode())
     print("TEXT MODE ENABLED")
     time.sleep(3)
-    ser.write('AT+CMGS="**********"\r'.encode())
+    ser.write('AT+CMGS="9045328260"\r'.encode())
 
     time.sleep(3)
     ser.write((dustbins[msg_topic] + chr(26)).encode())
@@ -32,7 +32,7 @@ def on_message(mosq, obj, msg):
     payload = str(msg.payload)
 
     # Send message
-    if (int(payload[2:(len(payload) - 1)])) > 80:
+    if (int(payload[2:(len(payload) - 1)])) < 20:
         cellular_message(msg.topic)
     dataFile = {"container1DataGreen": "Dustbin_1_Green.json", "container1DataBlue": "Dustbin_1_Blue.json",
                 "container2DataGreen": "Dustbin_2_Green.json", "container2DataBlue": "Dustbin_2_Blue.json",
@@ -43,45 +43,45 @@ def on_message(mosq, obj, msg):
     # dustbin data posting
 
     fp = open("C:\Apache24\htdocs\Data\\" + dataFile[msg.topic], "w")
-    if 96 < (int(payload[2:(len(payload) - 2)])):
+    if 89 < (int(payload[2:(len(payload) - 2)])):
         print("0", file=fp)
-    elif 92 < (int(payload[2:(len(payload) - 2)])) <= 96:
-        print("5", file=fp)
-    elif 88 < (int(payload[2:(len(payload) - 2)])) <= 92:
-        print("10", file=fp)
     elif 84 < (int(payload[2:(len(payload) - 2)])) <= 88:
-        print("15", file=fp)
+        print("5", file=fp)
     elif 80 < (int(payload[2:(len(payload) - 2)])) <= 84:
-        print("20", file=fp)
+        print("10", file=fp)
     elif 76 < (int(payload[2:(len(payload) - 2)])) <= 80:
-        print("25", file=fp)
+        print("15", file=fp)
     elif 72 < (int(payload[2:(len(payload) - 2)])) <= 76:
-        print("30", file=fp)
+        print("20", file=fp)
     elif 68 < (int(payload[2:(len(payload) - 2)])) <= 72:
-        print("35", file=fp)
+        print("25", file=fp)
     elif 64 < (int(payload[2:(len(payload) - 2)])) <= 68:
-        print("40", file=fp)
+        print("30", file=fp)
     elif 60 < (int(payload[2:(len(payload) - 2)])) <= 64:
-        print("45", file=fp)
+        print("35", file=fp)
     elif 56 < (int(payload[2:(len(payload) - 2)])) <= 60:
-        print("50", file=fp)
+        print("40", file=fp)
     elif 52 < (int(payload[2:(len(payload) - 2)])) <= 56:
-        print("55", file=fp)
+        print("45", file=fp)
     elif 48 < (int(payload[2:(len(payload) - 2)])) <= 52:
-        print("60", file=fp)
+        print("50", file=fp)
     elif 44 < (int(payload[2:(len(payload) - 2)])) <= 48:
-        print("65", file=fp)
+        print("55", file=fp)
     elif 40 < (int(payload[2:(len(payload) - 2)])) <= 44:
-        print("70", file=fp)
+        print("60", file=fp)
     elif 36 < (int(payload[2:(len(payload) - 2)])) <= 40:
-        print("75", file=fp)
+        print("65", file=fp)
     elif 32 < (int(payload[2:(len(payload) - 2)])) <= 36:
-        print("80", file=fp)
+        print("70", file=fp)
     elif 28 < (int(payload[2:(len(payload) - 2)])) <= 32:
-        print("85", file=fp)
+        print("75", file=fp)
     elif 24 < (int(payload[2:(len(payload) - 2)])) <= 28:
+        print("80", file=fp)
+    elif 20 < (int(payload[2:(len(payload) - 2)])) <= 24:
+        print("85", file=fp)
+    elif 16 < (int(payload[2:(len(payload) - 2)])) <= 20:
         print("90", file=fp)
-    elif 20 <= (int(payload[2:(len(payload) - 2)])) <= 24:
+    elif 12 <= (int(payload[2:(len(payload) - 2)])) <= 16:
         print("100", file=fp)
     else:
         print("Invalid Value", file=fp)
@@ -123,7 +123,6 @@ if __name__ == '__main__':
     client.subscribe("container4DataBlue", 0)
     client.subscribe("container5DataGreen", 0)
     client.subscribe("container5DataBlue", 0)
-
     # client.publish('reverse', 'ack', 0)
 
     while 1:
