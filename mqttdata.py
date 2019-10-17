@@ -123,7 +123,12 @@ if __name__ == '__main__':
     client.subscribe("container4DataBlue", 0)
     client.subscribe("container5DataGreen", 0)
     client.subscribe("container5DataBlue", 0)
-    # client.publish('reverse', 'ack', 0)
+    client.publish('dustbinNo', '1', 0)
+    client.publish('dustbinNo', '2', 0)
+    client.publish('dustbinNo', '3', 0)
+    client.publish('dustbinNo', '4', 0)
+    client.publish('dustbinNo', '5', 0)
+
 
     while 1:
         client.loop()
