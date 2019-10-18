@@ -88,7 +88,7 @@ def on_message(mosq, obj, msg):
     fp.close()
 
 
-    mosq.publish('pong', 'ack1', 0)
+# mosq.publish('pong', 'ack1', 0)
 
 
 def on_publish(mosq, obj, mid):
@@ -100,6 +100,7 @@ if __name__ == '__main__':
     ser = serial.Serial(SERIAL_PORT, baudrate=9600, timeout=5)
 
     data = data.data()  # my credential
+
     client = paho.Client()
 
     client.on_message = on_message
@@ -113,22 +114,14 @@ if __name__ == '__main__':
 
     client.connect(data["ip"], data["port"], 60)
 
-    client.subscribe("container1DataGreen", 0)
-    client.subscribe("container1DataBlue", 0)
-    client.subscribe("container2DataGreen", 0)
-    client.subscribe("container2DataBlue", 0)
-    client.subscribe("container3DataGreen", 0)
-    client.subscribe("container3DataBlue", 0)
-    client.subscribe("container4DataGreen", 0)
-    client.subscribe("container4DataBlue", 0)
-    client.subscribe("container5DataGreen", 0)
-    client.subscribe("container5DataBlue", 0)
-    client.publish('dustbinNo', '1', 0)
-    client.publish('dustbinNo', '2', 0)
-    client.publish('dustbinNo', '3', 0)
-    client.publish('dustbinNo', '4', 0)
-    client.publish('dustbinNo', '5', 0)
-
-
     while 1:
-        client.loop()
+        client.subscribe("container1DataGreen", 0)
+        client.subscribe("container1DataBlue", 0)
+        client.subscribe("container2DataGreen", 0)
+        client.subscribe("container2DataBlue", 0)
+        client.subscribe("container3DataGreen", 0)
+        client.subscribe("container3DataBlue", 0)
+        client.subscribe("container4DataGreen", 0)
+        client.subscribe("container4DataBlue", 0)
+        client.subscribe("container5DataGreen", 0)
+        client.subscribe("container5DataBlue", 0)
