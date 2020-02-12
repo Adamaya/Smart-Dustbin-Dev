@@ -1,0 +1,47 @@
+sudu apt-get update
+sudo apt-get upgrade
+
+# for localhost service
+sudo apt-get install apache2
+
+# for enabling php
+sudo apt-get install php
+
+# for using MQTT broker
+sudo apt-get install mosquitto
+
+# for using MQTT services
+sudo apt-get install mosquitto mosquitto-clients
+
+# for using MQTT library in python
+pip3 install paho-mqtt
+
+echo " "
+echo "-------------------------------------------------"
+echo "checking dependecies installed succesfully or not"
+echo "-------------------------------------------------" 
+echo " "
+
+echo "-------------------------------------------------"
+echo "Apache2"
+apache2 -v
+echo "-------------------------------------------------"
+echo " "
+
+echo "-------------------------------------------------"
+echo "PHP"
+php -v
+echo "-------------------------------------------------"
+echo " "
+
+echo "-------------------------------------------------"
+echo "Mosquitto"
+mosquitto -v
+echo "-------------------------------------------------"
+echo " "
+
+echo "-------------------------------------------------"
+echo "Mosquitto Clients"
+mosquitto -v
+echo "-------------------------------------------------"
+echo " "
