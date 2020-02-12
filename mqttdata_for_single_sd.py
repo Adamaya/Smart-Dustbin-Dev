@@ -7,6 +7,7 @@ import time, sys
 
 # TODO change the path
 # TODO change ultrasonic value according to dustbin height
+# TODO CHANGE THE IP ADDRESS ACCORDING TO YOUR MQTT BROKER
 
 def cellular_message(msg_topic):
     dustbins = {"container1Data": "Dustbin 1",
