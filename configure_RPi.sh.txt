@@ -16,6 +16,9 @@ sudo apt-get install mosquitto mosquitto-clients
 # for using MQTT library in python
 pip3 install paho-mqtt
 
+# for using picocom terminal service
+sudo apt-get install picocom
+
 echo " "
 echo "-------------------------------------------------"
 echo "checking dependecies installed succesfully or not"
@@ -43,5 +46,10 @@ echo " "
 echo "-------------------------------------------------"
 echo "Mosquitto Clients"
 mosquitto -v
+echo "-------------------------------------------------"
+echo " "
+
+echo "-------------------------------------------------"
+echo "Picocom(Terminal Services)"
 echo "-------------------------------------------------"
 echo " "
