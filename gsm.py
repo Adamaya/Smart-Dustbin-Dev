@@ -17,7 +17,7 @@ try:
     time.sleep(0.5)
     phone.write(bytes([26]))
     time.sleep(0.5)
-else:
+except Exception as e:
     print("not connected")
 finally:
     phone.close()
