@@ -8,7 +8,7 @@ class Dustbin_Features:
         self.value = int(payload) * 5 // 10
 
     def update_json(self, payload, topic):
-        file_name = credential.json_data_files["topic"]
+        file_name = credential.json_data_files[topic]
         fp = open("new_code/dump/database/" + file_name, "w")
         print("{\n  filled: " + payload +
               ",\n  last_updated: " + str(datetime.datetime.now()) + " \n}", file=fp)
@@ -76,4 +76,4 @@ class Dustbin_Features:
             print("100%")
 
         else:
-            print("Invalid Value" + int(payload))
+            print("Invalid Value" + payload)
