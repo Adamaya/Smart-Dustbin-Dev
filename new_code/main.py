@@ -1,18 +1,51 @@
-import base64
 import new_code.broker.mqtt_connection
-import paho.mqtt.client as paho
-import new_code.crd.credential as data
-from time import sleep
-import datetime
 
-import new_code.dump.methods.crd as credential
+broker = new_code.broker.mqtt_connection.Broker()
+broker.connect()
+broker.subscribe_topics()
+dustbin_no = 0
+ping = 0
 
-print()
-string = base64.b64encode(base64.b64encode(b"hello"))
-print(string.decode("utf-8"))
+while 1:
 
-# broker=new_code.broker.mqtt_connection.Broker()
-# broker.connect()
-# broker.subscribe_topics()
-# while 1:
-#     broker.client.loop()
+    broker.client.loop()
+
+    if dustbin_no % 4 == 0:
+        if ping == 0:
+            broker.publish_on_topics("container1Ping")
+            ping = 1
+        if broker.node_ping != "1":
+            continue
+        ping = 0
+        dustbin_no = dustbin_no + 1
+        broker.node_ping = "0"
+
+    elif dustbin_no % 4 == 1:
+        if ping == 0:
+            broker.publish_on_topics("container2Ping")
+            ping = 1
+        if broker.node_ping != "1":
+            continue
+        ping = 0
+        dustbin_no = dustbin_no + 1
+        broker.node_ping = "0"
+
+    elif dustbin_no % 4 == 2:
+        if ping == 0:
+            broker.publish_on_topics("container3Ping")
+            ping = 1
+        if broker.node_ping != "1":
+            continue
+        ping = 0
+        dustbin_no = dustbin_no + 1
+        broker.node_ping = "0"
+
+    elif dustbin_no % 4 == 3:
+        if ping == 0:
+            broker.publish_on_topics("container4Ping")
+            ping = 1
+        if broker.node_ping != "1":
+            continue
+        ping = 0
+        dustbin_no = dustbin_no + 1
+        broker.node_ping = "0"
