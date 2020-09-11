@@ -14,7 +14,7 @@ class Broker:
         this function is called by subscribe function. In this function we are fetching the message from the subscribed
         channel and decoding it into string format. After that auto_adjust function is called to adjust the payload
         value according to dustbin capacity and storing it into adjust_value. After that we are posting data on the
-        dynamo db.
+        dynamo db. If the data
 
         :param msg: message of MQTT
         :return: null

@@ -1,6 +1,8 @@
 sudu apt-get update
 sudo apt-get upgrade
-
+sudo pip3 install awscli
+sudo pip3 install boto3
+aws configure
 # for localhost service
 sudo apt-get install apache2
 

@@ -131,22 +131,24 @@ def update_dynamo_db(value, topic):
     :param topic: topic of
     :return: null
     """
-    Table_Name = 'Containers'
+
+    Table_Name = 'Live_Status'
     now = datetime.datetime.now()
-    date = now.strftime("%d")
-    month = now.strftime("%B")
-    year = now.strftime("%Y")
+    date = now.strftime('%d %B %Y')
     current_time = now.strftime("%H:%M:%S")
     db = boto3.resource('dynamodb')
     table = db.Table(Table_Name)
     table.put_item(
         Item={
-            'container_id': str(credential.dynamo_db_table[topic]),
+            'dustbin_id': str(credential.dynamo_db_table[topic]),
             'date': date,
-            'month': month,
-            'year': year,
             'time': str(current_time),
-            'sesor_value': str(value)
+            'location_name': "AB1",
+            'latitude': str(25.69),
+            'longditude': str(69.56),
+            'sweeper_contact_no': str("+91xxxxxxxxxx"),
+            'sweeper_name': 'demo',
+            'sensor_value': str(value)
         }
     )
 
