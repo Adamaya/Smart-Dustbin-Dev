@@ -72,9 +72,6 @@ def lambda_handler(event, context):
             bin_details_4['sensor_value'] = response['Item']['sensor_value']['S']
             complete_bins_details[bin_id] = bin_details_4
 
-    final_response = json.dumps(complete_bins_details, indent=4)
+    final_response = json.dumps(complete_bins_details)
 
-    return {
-        'statusCode': 200,
-        'body': final_response
-    }
+    return json.loads(final_response)
