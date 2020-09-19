@@ -132,7 +132,7 @@ def update_dynamo_db(value, topic):
     :return: null
     """
 
-    Table_Name = 'Live_Status'
+    Table_Name = 'dustbins_live_status'
     now = datetime.datetime.now()
     date = now.strftime('%d %B %Y')
     current_time = now.strftime("%H:%M:%S")
@@ -145,7 +145,7 @@ def update_dynamo_db(value, topic):
             'time': str(current_time),
             'location_name': "AB1",
             'latitude': str(25.69),
-            'longditude': str(69.56),
+            'longitude': str(69.56),
             'sweeper_contact_no': str("+91xxxxxxxxxx"),
             'sweeper_name': 'demo',
             'sensor_value': str(value)
