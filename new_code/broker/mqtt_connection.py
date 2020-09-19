@@ -24,7 +24,6 @@ class Broker:
         if msg.topic in ["container1Data", "container2Data", "container3Data", "container4Data"]:
             adjusted_value = features.auto_adjust(payload, msg.topic)
             features.update_dynamo_db(adjusted_value, msg.topic)
-            features.upload_to_s3(msg.topic)
             self.node_ping = "1"
 
     def on_publish(self, mosq, obj, mid):
