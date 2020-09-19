@@ -1,6 +1,5 @@
-import json
 import boto3
-import cgi, json
+import json
 from botocore.config import Config
 
 
